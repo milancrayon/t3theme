@@ -1,0 +1,5 @@
+mod.wizards.newContentElement.wizardItems { 
+   customelement.header = Custom Elements 
+}
+@import 'EXT:t3theme/Configuration/TsConfig/Page/Mod/WebLayout/BackendLayouts/'
+@import 'EXT:t3theme/Configuration/TsConfig/Page/Mod/Wizards/Elements/'

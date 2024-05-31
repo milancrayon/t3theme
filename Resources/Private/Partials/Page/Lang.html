@@ -1,0 +1,34 @@
+<f:if condition="{languagenavigation}">
+	<f:variable name="lan" value="{0:0,1:1}" />
+	<div class="dropdown">
+		<button class="btn btn-secondary  btn-sm dropdown-toggle" type="button" id="langmenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			<f:for each="{languagenavigation}" as="item">
+				<f:if condition="{item.active}">
+					<core:icon identifier="{item.flag}" />
+				</f:if>
+			</f:for>
+		</button>
+		<div class="dropdown-menu" aria-labelledby="langmenu">
+			<f:for each="{lan}" as="i">
+				<f:for each="{languagenavigation}" as="item">
+					<f:if condition="{i} == {item.languageId}">
+						<f:if condition="!{item.active}">
+						<f:if condition="{item.available}">
+							<f:then>
+								<a class="dropdown-item" href="{item.link}" hreflang="{item.hreflang}" title="{item.title}">
+									<core:icon identifier="{item.flag}" />
+								</a>
+							</f:then>
+							<f:else>
+								<a href="#" class="dropdown-item">
+									<core:icon identifier="{item.flag}" />
+								</a>
+							</f:else>
+						</f:if>
+						</f:if>
+					</f:if>
+				</f:for>
+			</f:for>
+		</div>
+	</div>
+</f:if>
