@@ -1,5 +1,64 @@
-<div class="navbar-light"><header class="header bg-light">
-	<nav class="container  container-xxl navbar navbar-expand-lg navbar-light ">
-		 
-	</nav>
-</header></div>
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true"> 
+<f:if condition="{configHeader}">
+    <div class="navbar-light">
+        <header class="header bg-light">
+            <f:if condition="{configHeader.header_top}">
+                <f:then>
+                    <f:if condition="{currentPid} != {configHeader.header_top}">
+                        <f:cObject typoscriptObjectPath="lib.headerPageId" />
+                    </f:if>
+                </f:then>
+                <f:else>
+                    <nav class="container  container-xxl navbar navbar-expand-lg navbar-light ">
+                        <f:debug>{configHeader}</f:debug>
+                        <f:if condition="{configHeader.logo}"> 
+                            <a href="{f:cObject(typoscriptObjectPath: 'lib.currentlanguage')}" class="navbar-brand">
+                                <f:variable name="logoWidth" value="{configHeader.logo_width}" />
+                                <f:variable name="logoHeight" value="{configHeader.logo_height}" />
+                                <f:image src="{configHeader.logo.extpath}" width="{logoWidth}" height="{logoHeight}" alt="logo"></f:image>
+                            </a>
+                        </f:if>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <f:if condition="{configMenu.menu}">
+                            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                                <ul class="navbar-nav mr-auto">
+                                    <f:for each="{configMenu.menu}" as="item" iteration="menuIteration">
+                                        <li
+                                            class="nav-item {f:if(condition: '{item.child -> f:count()} > 0', then: 'dropdown')} {f:if(condition: '{item.uid} == {data.uid}', then: 'active')}">
+                                            <f:cObject typoscriptObjectPath="lib.NAV" data="{pagid: item.uid}" />
+                                            <f:if condition="{item.child -> f:count()}">
+                                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                    <ul class="submenu">
+                                                        <f:for each="{item.child}" as="child">
+                                                            <li
+                                                                class="nav-item {f:if(condition: '{child.uid} == {data.uid}', then: 'active')}">
+                                                                <f:cObject typoscriptObjectPath="lib.NAV"
+                                                                    data="{pagid: child.uid}" />
+                                                            </li>
+                                                        </f:for>
+                                                    </ul>
+                                                </div>
+                                            </f:if>
+                                        </li>
+                                    </f:for>
+                                </ul>
+                            </div>
+                        </f:if>
+                    </nav>
+                    <f:if condition="{configLangMenu}">
+                        <f:if condition="{configLangMenu.show_menu}">
+                            <div class="lang">
+                                <f:render partial="lang" arguments="{_all}" />
+                            </div>
+                        </f:if>
+                    </f:if>
+                </f:else>
+            </f:if>
+        </header>
+    </div>
+</f:if> 
+</html>

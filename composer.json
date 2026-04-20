@@ -1,21 +1,20 @@
 {
-   "name": "t3theme/t3theme",
+   "name": "crayon/t3theme",
    "type": "typo3-cms-extension",
    "description": "Create Custom Element using T3theme",
    "authors": [
       {
          "name": "T3Element",
-         "email": "info@t3theme.com"
+         "email": "info@t3element.com"
       }
    ],
    "license": [
       "GPL-2.0-or-later"
    ],
    "require": {
-      "typo3/cms-core": ">=12.1.0,<13.0",
-      "nng/nnrestapi": "2.0.4",
-      "b13/container": "2.3.6",
-      "georgringer/news": "11.4.1"
+      "typo3/cms-core": "^13.0 || ^14.0",
+      "b13/container": ">=3.1.12",
+      "crayon/t3themeextend": "1.0.0"
    },
    "autoload": {
       "psr-4": {

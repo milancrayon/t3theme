@@ -1,0 +1,1 @@
+[SYS][displayErrors] = 0;

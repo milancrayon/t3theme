@@ -4,17 +4,16 @@ $EM_CONF['t3theme'] = [
     'description' => 'Create Custom Element using T3theme',
     'constraints' => [
         'depends' => [
-            'typo3' => '12.1.0-12.4.99',
-            'nnrestapi' => '2.0.4',
-            'container' => '2.3.6',
-            'news' => '11.4.1'
+            'typo3' => '13.4.0-14.4.99',
+            'container' => '^3.1.12',
+            't3themeextend' => '1.0.0'
         ],
         'conflicts' => [],
         'suggests' => [],
     ],
     'autoload' => [
-        'psr-4' => [ 
-            "Crayon\\T3theme\\"=> "Classes",
+        'psr-4' => [
+            "Crayon\\T3theme\\" => "Classes",
         ],
     ],
     'category' => 'templates',
@@ -24,6 +23,6 @@ $EM_CONF['t3theme'] = [
     'author_email' => 'info@t3theme.com',
     'author_company' => 'Crayonwebstudio private limited',
     'state' => 'stable',
-    'version' => '1.0.2',
+    'version' => '1.0.0',
     'clearcacheonload' => 1,
 ];

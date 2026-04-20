@@ -17,11 +17,10 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'email,c_lc,status,is_verify,log,version,last_verify',
-        'iconfile' => 'EXT:t3theme/Resources/Public/Icons/eicon.gif',
+        'iconfile' => 'EXT:t3theme/Resources/Public/Icons/icon.png',
         'security' => [
-			'ignorePageTypeRestriction' => true,
-		],
+            'ignorePageTypeRestriction' => true,
+        ],
     ],
     'types' => [
         '1' => ['showitem' => 'c_lc,email,status,is_verify,log,version,last_verify, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
@@ -69,9 +68,6 @@ return [
                 'renderType' => 'datetime',
                 'eval' => 'datetime,int',
                 'default' => 0,
-                'range' => [
-                    'upper' => mktime(0, 0, 0, 1, 1, 2038)
-                ],
                 'behaviour' => [
                     'allowLanguageSynchronization' => true
                 ]

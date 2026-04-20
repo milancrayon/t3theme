@@ -1,0 +1,24 @@
+<html xmlns:f="http:
+ypo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{configFooter}">
+    <f:if condition="{configFooter.footerpage}">
+        <f:then>
+            <f:if condition="{currentPid} != {configFooter.footerpage}">
+                <f:cObject typoscriptObjectPath="lib.footerPageId" />
+            </f:if>
+        </f:then>
+        <f:else>
+            <f:if condition="{configFooter.copyright}">
+                <footer class="footer bg-light ">
+                    <div class="container  container-xxl">
+                        <p class="text-center">
+                            {configFooter.copyright}
+                        </p>
+                    </div>
+                </footer>
+            </f:if>
+        </f:else>
+    </f:if>
+</f:if>
+
+</html>

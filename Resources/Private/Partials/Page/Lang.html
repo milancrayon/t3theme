@@ -1,34 +1,46 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true"> 
+
 <f:if condition="{languagenavigation}">
-	<f:variable name="lan" value="{0:0,1:1}" />
-	<div class="dropdown">
-		<button class="btn btn-secondary  btn-sm dropdown-toggle" type="button" id="langmenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			<f:for each="{languagenavigation}" as="item">
-				<f:if condition="{item.active}">
-					<core:icon identifier="{item.flag}" />
-				</f:if>
-			</f:for>
-		</button>
-		<div class="dropdown-menu" aria-labelledby="langmenu">
-			<f:for each="{lan}" as="i">
-				<f:for each="{languagenavigation}" as="item">
-					<f:if condition="{i} == {item.languageId}">
-						<f:if condition="!{item.active}">
-						<f:if condition="{item.available}">
-							<f:then>
-								<a class="dropdown-item" href="{item.link}" hreflang="{item.hreflang}" title="{item.title}">
-									<core:icon identifier="{item.flag}" />
-								</a>
-							</f:then>
-							<f:else>
-								<a href="#" class="dropdown-item">
-									<core:icon identifier="{item.flag}" />
-								</a>
-							</f:else>
-						</f:if>
-						</f:if>
-					</f:if>
-				</f:for>
-			</f:for>
-		</div>
-	</div>
+    <a class="dropdown-toggle nav-link" role="button" id="langmenu" data-bs-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
+        <f:for each="{languagenavigation}" as="item">
+            <f:if condition="{item.active}">
+                <core:icon identifier="{item.flag}" />
+                <span style="margin-left:0.3em;">{item.navigationTitle}</span>
+            </f:if>
+        </f:for>
+    </a>
+    <i class="arrow_carrot-down_alt2 mobile_dropdown_icon" aria-hidden="true" data-bs-toggle="dropdown"></i>
+    <ul role="menu" class="dropdown-menu menu-depth-2nd" aria-labelledby="langmenu">
+        <f:for each="{configLangMenu.langm}" as="i">
+            <f:for each="{languagenavigation}" as="item">
+                <f:if condition="{i.id} == {item.languageId}">
+                    <f:if condition="!{item.active}">
+                        <f:if condition="{item.available}">
+                            <f:then>
+                                <li itemscope="itemscope" id="menu-item-10043-en"
+                                    class="lang-item lang-item-149 lang-item-en current-lang lang-item-first menu-item menu-item-type-custom menu-item-object-custom current_page_item menu-item-home  menu-item-10043-en nav-item">
+                                    <a class="nav-link" href="{item.link}" hreflang="{item.hreflang}"
+                                        title="{item.title}">
+                                        <core:icon identifier="{item.flag}" />
+                                        <span style="margin-left:0.3em;">{item.navigationTitle}</span>
+                                    </a>
+                                </li>
+                            </f:then>
+                            <f:else>
+                                <li itemscope="itemscope" id="menu-item-10043-en"
+                                    class="lang-item lang-item-149 lang-item-en current-lang lang-item-first menu-item menu-item-type-custom menu-item-object-custom current_page_item menu-item-home  menu-item-10043-en nav-item">
+                                    <a href="#" class="nav-link">
+                                        <core:icon identifier="{item.flag}" />
+                                        <span style="margin-left:0.3em;">{item.navigationTitle}</span>
+                                    </a>
+                                </li>
+                            </f:else>
+                        </f:if>
+                    </f:if>
+                </f:if>
+            </f:for>
+        </f:for>
+    </ul>
 </f:if>
+</html>

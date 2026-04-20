@@ -15,11 +15,10 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'data',
-        'iconfile' => 'EXT:t3theme/Resources/Public/Icons/eicon.gif',
+        'iconfile' => 'EXT:t3theme/Resources/Public/Icons/icon.png',
         'security' => [
-			'ignorePageTypeRestriction' => true,
-		],
+            'ignorePageTypeRestriction' => true,
+        ],
     ],
     'types' => [
         '1' => ['showitem' => 'header,footer,cssjs,menu,langm,general, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language, sys_language_uid, l10n_parent, l10n_diffsource, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, hidden, starttime, endtime'],
@@ -30,7 +29,7 @@ return [
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
             'config' => [
                 'type' => 'language',
-              
+
             ],
         ],
         'l10n_parent' => [
@@ -41,7 +40,7 @@ return [
                 'renderType' => 'selectSingle',
                 'default' => 0,
                 'items' => [
-                    [ 'label' => '', 'value' => 0 ]
+                    ['label' => '', 'value' => 0]
                 ],
                 'foreign_table' => 'tx_t3theme_domain_model_themeconfig',
                 'foreign_table_where' => 'AND {#tx_t3theme_domain_model_themeconfig}.{#pid}=###CURRENT_PID### AND {#tx_t3theme_domain_model_themeconfig}.{#sys_language_uid} IN (-1,0)',
@@ -53,13 +52,13 @@ return [
             ],
         ],
         'hidden' => [
-			'config' => [
-				'type' => 'check',
-				'items' => [
-					['label' => 'Disable'],
-				],
-			]
-		],
+            'config' => [
+                'type' => 'check',
+                'items' => [
+                    ['label' => 'Disable'],
+                ],
+            ]
+        ],
         'starttime' => [
             'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
@@ -156,6 +155,6 @@ return [
                 'default' => ''
             ]
         ],
-    
+
     ],
 ];

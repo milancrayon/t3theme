@@ -17,11 +17,10 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'data',
-        'iconfile' => 'EXT:t3theme/Resources/Public/Icons/eicon.gif',
+        'iconfile' => 'EXT:t3theme/Resources/Public/Icons/icon.png',
         'security' => [
-			'ignorePageTypeRestriction' => true,
-		],
+            'ignorePageTypeRestriction' => true,
+        ],
     ],
     'types' => [
         '1' => ['showitem' => 'data, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language, sys_language_uid, l10n_parent, l10n_diffsource, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, hidden, starttime, endtime'],
@@ -54,13 +53,13 @@ return [
             ],
         ],
         'hidden' => [
-			'config' => [
-				'type' => 'check',
-				'items' => [
-					['label' => 'Disable'],
-				],
-			]
-		],
+            'config' => [
+                'type' => 'check',
+                'items' => [
+                    ['label' => 'Disable'],
+                ],
+            ]
+        ],
         'starttime' => [
             'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
@@ -82,15 +81,11 @@ return [
                 'renderType' => 'datetime',
                 'eval' => 'datetime,int',
                 'default' => 0,
-                'range' => [
-                    'upper' => mktime(0, 0, 0, 1, 1, 2038)
-                ],
                 'behaviour' => [
                     'allowLanguageSynchronization' => true
                 ]
             ],
         ],
-
         'data' => [
             'exclude' => true,
             'label' => 'LLL:EXT:t3theme/Resources/Private/Language/locallang_t3theme.xlf:tx_t3theme_domain_model_elements.data',

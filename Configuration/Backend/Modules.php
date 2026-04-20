@@ -9,8 +9,8 @@ return [
         'workspaces' => 'live',
         'path' => '/module/t3theme',
         'labels' => 'LLL:EXT:t3theme/Resources/Private/Language/locallang_t3theme.xlf',
-        'icon'   => 'EXT:t3theme/Resources/Public/Icons/ic.png',
-        'extensionName' => 'T3theme',
+        'extensionName' => 'T3Theme',
+        'iconIdentifier' => 't3theme-be',
         'controllerActions' => [
             ElementsController::class => [
                 'index',

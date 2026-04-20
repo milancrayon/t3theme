@@ -3892,33 +3892,20 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 })));
 
-document.addEventListener("DOMContentLoaded", function() {
-  // Select all elements with class .nav-item
+document.addEventListener("DOMContentLoaded", function() { 
 
-
-  const navItems = document.querySelectorAll('.nav-item');
- 
-  // Iterate over each .nav-item element
-  navItems.forEach(function(item) {
-      // Query all elements with class .dropdown-menu within the current .nav-item
-      const dropdownMenuElement = item.querySelector('.dropdown-menu');
-      
-      // Check if a .dropdown-menu element is found
-      if (dropdownMenuElement) {
-          // Create a new arrow button element
+  const navItems = document.querySelectorAll('.nav-item'); 
+  navItems.forEach(function(item) { 
+      const dropdownMenuElement = item.querySelector('.dropdown-menu'); 
+      if (dropdownMenuElement) { 
           const arrowButton = document.createElement('button');
-          arrowButton.className = 'arrow-button';
-          // Arrow symbol or any text you want
-          
-          // Append the arrow button to the .nav-item element
+          arrowButton.className = 'arrow-button'; 
           item.insertBefore(arrowButton,dropdownMenuElement);
         const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
 
     if (viewportWidth <= 992) { 
-      console.log("view")
-          // Add click event listener to the arrow button
-          arrowButton.addEventListener('click', function() {
-              // Toggle the display property of the .dropdown-menu element
+      console.log("view") 
+          arrowButton.addEventListener('click', function() { 
               if (dropdownMenuElement.style.display === 'none' || dropdownMenuElement.style.display === '') {
                   dropdownMenuElement.style.display = 'block';
               } else {
@@ -3929,23 +3916,17 @@ document.addEventListener("DOMContentLoaded", function() {
   });}
 
 );
-document.addEventListener('DOMContentLoaded', function() {
-  // Select all elements with the class .nav-item
+document.addEventListener('DOMContentLoaded', function() { 
   const navItems = document.querySelectorAll('.nav-item');
-  navItems.forEach(function(nav) {
-    // Add event listener for hover on .nav-item
+  navItems.forEach(function(nav) { 
     const dropdownMenuElement = nav.querySelector('.dropdown-menu');
     const arrowButton = nav.querySelector('.arrow-button');
     const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
     if(viewportWidth >= 992){
       if (arrowButton) {
-        nav.addEventListener('mouseover', function() {
-         
-          // Add a class to .arrow-button
+        nav.addEventListener('mouseover', function() { 
           arrowButton.classList.add('rotate');
-        });
-    
-        // Optionally, you can remove the class when mouse leaves .nav-item
+        }); 
         nav.addEventListener('mouseout', function() {
           arrowButton.classList.remove('rotate');
         });}
@@ -3953,15 +3934,9 @@ document.addEventListener('DOMContentLoaded', function() {
   
     
 
-    if (viewportWidth <= 992 && arrowButton ) { 
-      // dropdownMenuElement.style.display === 'none';
-      // arrowButton.classList.add('rotate');
-    arrowButton.addEventListener('click', function() {
-      // Toggle the 'rotate' class on .arrow-button
-      if (dropdownMenuElement.style.display === 'block' ) {
-     
-            
-            // Toggle the 'rotate' class on .arrow-button
+    if (viewportWidth <= 992 && arrowButton ) {  
+    arrowButton.addEventListener('click', function() { 
+      if (dropdownMenuElement.style.display === 'block' ) { 
             arrowButton.classList.add('rotate');
           }
           else if (dropdownMenuElement.style.display === 'none'|| dropdownMenuElement.style.display === ''){
@@ -3989,17 +3964,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const arrowButton = navItem.querySelector('.arrow-button');
 
 
-    if (firstChild && arrowButton) {
-      // Add event listener for hover on the first child of .nav-item
+    if (firstChild && arrowButton) { 
       const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
 
     if (viewportWidth >= 992) { 
-      firstChild.addEventListener('mouseover', function() {
-        // Add .rotate-up class to .arrow-button
+      firstChild.addEventListener('mouseover', function() { 
         arrowButton.classList.add('rotate-side');
       });
-
-      // Optionally, you can remove the class when mouse leaves
+ 
       firstChild.addEventListener('mouseout', function() {
         arrowButton.classList.remove('rotate-side');
       });}

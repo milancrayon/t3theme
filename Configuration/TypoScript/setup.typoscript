@@ -1,39 +1,44 @@
 @import 'EXT:fluid_styled_content/Configuration/TypoScript/setup.typoscript'
-
-# DEfine page config 
+ 
 page = PAGE
-page {
-	
-	headerData.20.value < sitetitle
-	headerData.20.wrap = : |
-	
-	# favicon set
-	shortcutIcon = {$config.mainFavicon}
-
-	# Set meta for page
+page {  
+	shortcutIcon = {$config.mainFavicon} 
 	meta{		
 		viewport = width=device-width, initial-scale=1, user-scalable=0, initial-scale=1
-        description = {$page.meta.description}
+        description = TEXT
         description {
-            override.field = description
-        }
-        keywords = {$page.meta.keywords}
+            data = page:description 
+            ifEmpty.cObject = TEXT
+            ifEmpty.cObject {
+                value = {$page.meta.description}
+                if.isTrue.data = {$page.meta.description}
+            }
+        } 
+        keywords = TEXT
         keywords {
-            override.field = keywords
-        }
-        X-UA-Compatible = {$page.meta.compatible}
-        X-UA-Compatible {
-            attribute = http-equiv
-        }
-
-        # OpenGraph Tags
+            data = page:keywords 
+            ifEmpty.cObject = TEXT
+            ifEmpty.cObject {
+                value = {$page.meta.keywords}
+                if.isTrue.data = {$page.meta.keywords}
+            }
+        } 
+        robots = TEXT
+        robots {
+            data = page:robots 
+            ifEmpty.cObject = TEXT
+            ifEmpty.cObject {
+                value = {$page.meta.robots}
+                if.isTrue.data = {$page.meta.robots}
+            }
+        }   
         og:title {
             attribute = property
             field = title
         }
         og:site_name {
             attribute = property
-            data = TSFE:tmpl|setup|sitetitle
+            data = site:websiteTitle
         }
         og:description = {$page.meta.description}
         og:description {
@@ -93,39 +98,41 @@ page {
             ifEmpty = Default
         }
         templateRootPaths {
-            0 = EXT:t3theme/Resources/Private/Templates/Page/
-            1 = {$page.fluidtemplate.templateRootPath}
+            0 = {$page.fluidtemplate.templateRootPath}
+            1 = EXT:t3theme/Resources/Private/Templates/Page/
         }
         partialRootPaths {
-            0 = EXT:t3theme/Resources/Private/Partials/Page/
-            1 = {$page.fluidtemplate.partialRootPath}
+            0 = {$page.fluidtemplate.partialRootPath}
+            1 = EXT:t3theme/Resources/Private/Partials/Page/
         }
         layoutRootPaths {
-            0 = EXT:t3theme/Resources/Private/Layouts/Page/
-            1 = {$page.fluidtemplate.layoutRootPath}
+            0 = {$page.fluidtemplate.layoutRootPath}
+            1 = EXT:t3theme/Resources/Private/Layouts/Page/
         }
         dataProcessing {
             10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
             10 {
                 references.fieldName = media
             }
-        }
+            40 = TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor
+            40 {
+                languages = auto
+                as = languagenavigation
+            }
+            60 = Crayon\T3theme\DataProcessing\ThemeProcessor
+        } 
+       
+    }
+    includeCSS {
+        bootstrap = EXT:t3theme/Resources/Public/css/bootstrap.min.css
     }
 
-	# Include Css in header
-	includeCSS {
-		bootstrap = EXT:t3theme/Resources/Public/css/bootstrap.min.css
-	}
-
-	# Include js in footer
-	includeJSFooter {
+    includeJSFooter {
         jquery = EXT:t3theme/Resources/Public/js/jquery.js 
         popper = EXT:t3theme/Resources/Public/js/popper.js
         bootstrap = EXT:t3theme/Resources/Public/js/bootstrap.js 
-    }
-
-}
-	
+    } 
+} 	
 lib.dynamicContent = COA 
 lib.dynamicContent { 
     5 = LOAD_REGISTER 
@@ -171,35 +178,20 @@ lib.dynamicContent {
         } 
     } 
     90 = RESTORE_REGISTER 
-} 
-    
+}     
 lib.NAV = HMENU
 lib.NAV {
     special = list
     special.value.field = pagid
     1 = TMENU
     1 {
-      NO.ATagParams = class="nav-link"
+    NO = 1
+    NO { 
+      ATagParams.dataWrap = class="main cs-sticky-item" data-id="{field:uid}"
     }
+  }
 }
-
 lib.currentlanguage = TEXT
-lib.currentlanguage.data = siteLanguage:base 
-
- 
-# Module configuration
-module.tx_t3theme {
-    persistence {
-        storagePid = {$module.tx_t3theme.persistence.storagePid}
-    }
-    view {
-        templateRootPaths.0 = EXT:t3theme/Resources/Private/Backend/Templates/
-        templateRootPaths.1 = {$module.tx_t3theme.view.templateRootPath}
-        partialRootPaths.0 = EXT:t3theme/Resources/Private/Backend/Partials/
-        partialRootPaths.1 = {$module.tx_t3theme.view.partialRootPath}
-        layoutRootPaths.0 = EXT:t3theme/Resources/Private/Backend/Layouts/
-        layoutRootPaths.1 = {$module.tx_t3theme.view.layoutRootPath}
-    }
-}
-
-@import 'EXT:t3theme/Configuration/TypoScript/Elements/'
+lib.currentlanguage.data = siteLanguage:base  
+lib.currentURL= TEXT
+lib.currentURL.data = getIndpEnv:TYPO3_REQUEST_URL  

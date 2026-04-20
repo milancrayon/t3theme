@@ -1,25 +1,26 @@
 mod { 
-         web_layout { 
-             BackendLayouts { 
-                 default { 
-                     title = LLL:EXT:t3theme/Resources/Private/Language/locallang_t3theme.xlf:backend_layout.default 
-                     config { 
-                         backend_layout { 
-                             colCount = 1 
-                             rowCount = 1 
-                             rows { 
-                                 1 { 
-                                     columns { 
-                                         1 { 
-                                             name = LLL:EXT:t3theme/Resources/Private/Language/locallang_t3theme.xlf:backend_layout.column.normal 
-                                             colPos = 0 
-                                         } 
-                                     } 
-                                 } 
-                             } 
-                         } 
-                     } 
-                 } 
-             } 
-         } 
-     }
+    web_layout { 
+        BackendLayouts { 
+            default { 
+                title = LLL:EXT:t3theme/Resources/Private/Language/locallang_t3theme.xlf:backend_layout.default 
+                config { 
+                    backend_layout { 
+                        colCount = 1 
+                        rowCount = 1 
+                        rows { 
+                            1 { 
+                                columns { 
+                                    1 { 
+                                        name = LLL:EXT:t3theme/Resources/Private/Language/locallang_t3theme.xlf:backend_layout.column.normal 
+                                        colPos = 0 
+                                    } 
+                                } 
+                            } 
+                        } 
+                    } 
+                } 
+                icon = EXT:t3theme/Resources/Public/Icons/Extension.png 
+            } 
+        } 
+    } 
+}
