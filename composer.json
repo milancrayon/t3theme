@@ -1,5 +1,5 @@
 {
-   "name": "crayon/t3theme",
+   "name": "t3element/t3theme",
    "type": "typo3-cms-extension",
    "description": "Create Custom Element using T3theme",
    "authors": [
