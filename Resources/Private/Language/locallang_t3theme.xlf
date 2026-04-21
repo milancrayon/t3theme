@@ -110,6 +110,9 @@
 			<trans-unit id="tx_t3theme_domain_model_themeconfig.langm" resname="tx_t3theme_domain_model_themeconfig.langm">
 				<source>Language Menu</source>
 			</trans-unit>
+			<trans-unit id="config" resname="config">
+				<source>Configuration</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
