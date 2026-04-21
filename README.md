@@ -31,7 +31,7 @@ It provides a standardized framework for building custom content elements and ma
 ### Using Composer
 
 ```bash
-composer require crayon/t3theme
+composer require t3element/t3theme
 ```
 
 ---
