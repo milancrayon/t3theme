@@ -39,13 +39,12 @@ class ElementsController extends ActionController
         );
 
         $this->pageRenderer->addCssFile(
-            'EXT:t3theme/Resources/Public/t3theme/index-DPPTz_7j.css'
+            'EXT:t3theme/Resources/Public/t3theme/index-9g_8o3kT.css'
         );
         $this->pageRenderer->addJsFile(
-            'EXT:t3theme/Resources/Public/t3theme/index-CkXKmRd3.js',
+            'EXT:t3theme/Resources/Public/t3theme/index-B8TpvXOL.js',
             'module'
         );
-
 
         return new HtmlResponse(
             $moduleTemplate->render('Elements/Index')
