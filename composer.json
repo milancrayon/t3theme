@@ -14,7 +14,7 @@
    "require": {
       "typo3/cms-core": "^13.0 || ^14.0",
       "b13/container": ">=3.1.12",
-      "crayon/t3themeextend": "1.0.0"
+      "t3element/t3themeextend": "1.0.0"
    },
    "autoload": {
       "psr-4": {
